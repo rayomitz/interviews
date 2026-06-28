@@ -1,0 +1,333 @@
+/*
+   LoginPage.module.css
+   Two-column green neumorphic login screen
+   */
+
+/* Full-viewport shell */
+.shell {
+  display: flex;
+  min-height: 100vh;
+  background: var(--surface);
+}
+
+/*LEFT GREEN PANEL*/
+.panel {
+  display: flex;
+  flex-direction: column;
+  width: 42%;
+  min-width: 340px;
+  background: linear-gradient(160deg, var(--green-800) 0%, var(--green-900) 100%);
+  padding: 48px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle decorative circle in the corner */
+.panel::before {
+  content: '';
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  top: -160px;
+  right: -160px;
+  pointer-events: none;
+}
+
+.panel::after {
+  content: '';
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  bottom: -80px;
+  left: -60px;
+  pointer-events: none;
+}
+
+.panelInner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 36px;
+}
+
+/* Brand row */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logoMark {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.brandName {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+
+.brandSub {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 1px;
+}
+
+/* Hero copy */
+.hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+}
+
+.heroTitle {
+  font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.heroBody {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.65;
+  margin: 0;
+  max-width: 360px;
+}
+
+/* Quick-link cards grid */
+.quickGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.quickCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  transition: background 0.2s;
+}
+
+.quickCard:hover {
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.quickIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green-100);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.quickLabel {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.3;
+}
+
+.quickDesc {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.4;
+  margin-top: 2px;
+}
+
+/* Bottom footnote */
+.panelFooter {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+}
+
+.panelLink {
+  color: var(--green-100);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.panelLink:hover {
+  text-decoration: underline;
+}
+
+/*RIGHT FORM SIDE*/
+.formSide {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 32px;
+}
+
+.formCard {
+  width: 100%;
+  max-width: 440px;
+}
+
+/* Mobile-only brand row (hidden on desktop) */
+.mobileBrand {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.formTitle {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--ink-900);
+  letter-spacing: -0.02em;
+  margin: 0 0 6px;
+}
+
+.formSub {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 0 0 28px;
+  line-height: 1.5;
+}
+
+/* Error banner */
+.errorBanner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: var(--radius-md);
+  color: #b91c1c;
+  font-size: 0.875rem;
+  padding: 12px 14px;
+  margin-bottom: 20px;
+}
+
+/* Form */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Remember + forgot row */
+.formRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: -4px;
+}
+
+.forgotLink {
+  font-size: 0.82rem;
+  color: var(--green-700);
+  text-decoration: none;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.forgotLink:hover {
+  text-decoration: underline;
+}
+
+/* Submit button full width */
+.submitBtn {
+  width: 100%;
+  margin-top: 6px;
+}
+
+/* Bottom claim hint */
+.claimHint {
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-align: center;
+  margin-top: 24px;
+}
+
+.claimLink {
+  color: var(--green-700);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.claimLink:hover {
+  text-decoration: underline;
+}
+
+/*RESPONSIVE*/
+@media (max-width: 768px) {
+  .shell {
+    flex-direction: column;
+  }
+
+  .panel {
+    width: 100%;
+    min-width: unset;
+    padding: 32px 24px;
+  }
+
+  .hero {
+    flex: none;
+  }
+
+  .heroTitle {
+    font-size: 1.4rem;
+  }
+
+  .quickGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .formSide {
+    padding: 36px 20px 48px;
+    align-items: flex-start;
+  }
+
+  .mobileBrand {
+    display: flex;
+  }
+
+  .mobileBrand .logoMark {
+    background: linear-gradient(135deg, var(--green-700), var(--green-900));
+    color: #fff;
+  }
+}
+
+@media (max-width: 480px) {
+  .quickGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .panel {
+    padding: 24px 20px;
+  }
+}
