@@ -57,4 +57,10 @@ export function logoutApi() {
 
 export function getDashboard() {
   return api.get('/students/api/me/v1/dashboard')
+} 
+
+export function getAttendance(term) {
+  return api.get('/students/api/attendance/v1/me', {
+    params: term ? { term } : undefined,
+  })
 }
