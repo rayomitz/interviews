@@ -53,4 +53,8 @@ export function changePassword(payload) {
 // Returns: { data: { message } }
 export function logoutApi() {
   return api.post(API_PATHS.LOGOUT)
+} 
+
+export function getDashboard() {
+  return api.get('/students/api/me/v1/dashboard')
 }
