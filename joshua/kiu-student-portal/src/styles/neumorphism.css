@@ -1,0 +1,141 @@
+/* ============================================================
+   KIU Student Portal — Neumorphism Utilities
+   These classes apply the soft raised / inset effects
+   ============================================================ */
+
+/* ── Raised panel (cards, sidebar, topbar, etc.) ─────────── */
+
+.neu-raised {
+  background: var(--surface-raised);
+  box-shadow: var(--shadow-raised);
+  border-radius: var(--radius-lg);
+}
+
+.neu-raised-sm {
+  background: var(--surface-raised);
+  box-shadow: var(--shadow-raised-sm);
+  border-radius: var(--radius-md);
+}
+
+/* ── Inset (inputs, search bar, selected/active states) ─── */
+
+.neu-inset {
+  background: var(--surface);
+  box-shadow: var(--shadow-inset);
+  border-radius: var(--radius-md);
+}
+
+.neu-inset-sm {
+  background: var(--surface);
+  box-shadow: var(--shadow-inset-sm);
+  border-radius: var(--radius-sm);
+}
+
+/* ── Flat surface (no shadow — e.g. table bg) ─────────────── */
+
+.neu-flat {
+  background: var(--surface-soft);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+}
+
+/* ── Green accent raised (active nav, primary stat) ───────── */
+
+.neu-green {
+  background: linear-gradient(135deg, var(--green-700), var(--green-600));
+  box-shadow:
+    6px 6px 16px rgba(15, 90, 43, 0.40),
+    -4px -4px 12px rgba(255, 255, 255, 0.35);
+  border-radius: var(--radius-md);
+  color: #fff;
+}
+
+/* ── Progress well (inset track for progress bars) ────────── */
+
+.neu-progress-track {
+  background: var(--surface);
+  box-shadow: var(--shadow-inset-sm);
+  border-radius: 100px;
+  overflow: hidden;
+  height: 8px;
+}
+
+.neu-progress-fill {
+  height: 100%;
+  border-radius: 100px;
+  background: linear-gradient(90deg, var(--green-600), var(--green-500));
+  transition: width var(--transition-base);
+}
+
+/* ── Avatar circle ────────────────────────────────────────── */
+
+.neu-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-raised);
+  box-shadow: var(--shadow-raised-sm);
+  border-radius: 50%;
+  font-weight: 700;
+  color: var(--green-700);
+  font-size: var(--text-lg);
+  flex-shrink: 0;
+}
+
+/* ── Clickable card hover/active transitions ──────────────── */
+
+.neu-card-clickable {
+  cursor: pointer;
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.neu-card-clickable:hover {
+  box-shadow:
+    12px 12px 28px rgba(111, 126, 113, 0.30),
+    -12px -12px 28px rgba(255, 255, 255, 0.92);
+  transform: translateY(-2px);
+}
+
+.neu-card-clickable:active {
+  box-shadow: var(--shadow-btn-active);
+  transform: translateY(0);
+}
+
+/* ── Badge ────────────────────────────────────────────────── */
+
+.neu-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 10px;
+  border-radius: 100px;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.neu-badge.success {
+  background: var(--success-bg);
+  color: var(--green-700);
+}
+
+.neu-badge.warning {
+  background: var(--warning-bg);
+  color: var(--warning);
+}
+
+.neu-badge.error {
+  background: var(--error-bg);
+  color: var(--error);
+}
+
+.neu-badge.info {
+  background: var(--info-bg);
+  color: var(--info);
+}
+
+.neu-badge.neutral {
+  background: var(--surface);
+  box-shadow: var(--shadow-inset-sm);
+  color: var(--muted);
+}

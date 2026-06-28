@@ -1,0 +1,101 @@
+/* ============================================================
+   KIU Student Portal — Design Tokens
+   Green Neumorphism system
+   ============================================================ */
+
+:root {
+  /* ── Surfaces ─────────────────────────────────────────── */
+  --surface:        #e9eee9;   /* app background */
+  --surface-soft:   #f3f7f3;   /* lighter panels */
+  --surface-raised: #eef4ee;   /* raised card bg */
+
+  /* ── Green palette ────────────────────────────────────── */
+  --green-900: #0b3d1f;
+  --green-800: #0f5a2b;
+  --green-700: #147535;
+  --green-600: #1b9e3d;
+  --green-500: #25b84f;
+  --green-400: #4cce6b;
+  --green-100: #dff3e5;
+  --green-50:  #f0faf2;
+
+  /* ── Ink / text ───────────────────────────────────────── */
+  --ink-900: #132018;   /* headings */
+  --ink-700: #33463a;   /* body text */
+  --ink-500: #55705e;   /* secondary text */
+  --muted:   #708075;   /* captions, placeholders */
+
+  /* ── Semantic ─────────────────────────────────────────── */
+  --success: #25b84f;
+  --warning: #d97706;
+  --error:   #dc2626;
+  --info:    #0284c7;
+
+  --success-bg: #dff3e5;
+  --warning-bg: #fef3c7;
+  --error-bg:   #fee2e2;
+  --info-bg:    #e0f2fe;
+
+  /* ── Borders / dividers ───────────────────────────────── */
+  --line: rgba(19, 32, 24, 0.08);
+
+  /* ── Neumorphic shadows ───────────────────────────────── */
+  --shadow-raised:
+    10px 10px 24px rgba(111, 126, 113, 0.28),
+    -10px -10px 24px rgba(255, 255, 255, 0.90);
+
+  --shadow-raised-sm:
+    5px 5px 12px rgba(111, 126, 113, 0.22),
+    -5px -5px 12px rgba(255, 255, 255, 0.85);
+
+  --shadow-inset:
+    inset 6px 6px 14px rgba(111, 126, 113, 0.24),
+    inset -6px -6px 14px rgba(255, 255, 255, 0.85);
+
+  --shadow-inset-sm:
+    inset 3px 3px 8px rgba(111, 126, 113, 0.20),
+    inset -3px -3px 8px rgba(255, 255, 255, 0.80);
+
+  --shadow-btn-active:
+    inset 2px 2px 6px rgba(111, 126, 113, 0.30),
+    inset -2px -2px 6px rgba(255, 255, 255, 0.70);
+
+  /* ── Border radius ────────────────────────────────────── */
+  --radius-xl: 24px;
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+  --radius-xs: 5px;
+
+  /* ── Spacing scale ────────────────────────────────────── */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* ── Typography ───────────────────────────────────────── */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+
+  --text-xs:   11px;
+  --text-sm:   13px;
+  --text-base: 14px;
+  --text-md:   15px;
+  --text-lg:   17px;
+  --text-xl:   20px;
+  --text-2xl:  24px;
+  --text-3xl:  30px;
+
+  /* ── Sidebar ──────────────────────────────────────────── */
+  --sidebar-width: 240px;
+  --topbar-height: 60px;
+
+  /* ── Transitions ──────────────────────────────────────── */
+  --transition-fast: 140ms ease;
+  --transition-base: 220ms ease;
+}
