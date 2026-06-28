@@ -23,26 +23,26 @@
 
 import { createBrowserRouter, Navigate } from 'react-router-dom'
 
-import PublicRoute     from '../components/layout/PublicRoute'
-import ProtectedRoute  from '../components/layout/ProtectedRoute'
-import AppShell        from '../components/layout/AppShell'
+import PublicRoute     from './components/layout/Publicroute'
+import ProtectedRoute  from './components/layout/ProtectedRoute'
+import AppShell        from './components/layout/AppShell'
 
 // Public pages
-import LoginPage          from '../features/auth/LoginPage'
-import ClaimAccountPage   from '../features/auth/ClaimAccountPage'
-import ClaimVerifyPage    from '../features/auth/ClaimVerifyPage'
-import ForgotPasswordPage from '../features/auth/ForgotPasswordPage'
-import ResetPasswordPage  from '../features/auth/ResetPasswordPage'
+import LoginPage          from './features/auth/LoginPage'
+import ClaimAccountPage   from './features/auth/ClaimAccountPage'
+import ClaimVerifyPage    from './features/auth/ClaimVerifyPage'
+import ForgotPasswordPage from './features/auth/ForgotPasswordPage'
+import ResetPasswordPage  from './features/auth/ResetPasswordPage'
 
 // Protected pages
-import DashboardPage    from '../features/dashboard/DashboardPage'
-import ProfilePage      from '../features/profile/ProfilePage'
-import AttendancePage   from '../features/attendance/AttendancePage'
-import CheckInPage      from '../features/attendance/CheckInPage'
-import HostelsPage      from '../features/hostels/HostelsPage'
-import RegistrationPage from '../features/registration/RegistrationPage'
-import ResultsPage      from '../features/results/ResultsPage'
-import FinancePage      from '../features/finance/FinancePage'
+import DashboardPage    from './features/dashboard/DashboardPage'
+import ProfilePage      from './features/profile/ProfilePage'
+import AttendancePage   from './features/attendance/AttendancePage'
+import CheckInPage      from './features/attendance/CheckInPage'
+import HostelsPage      from './features/hostels/HostelsPage'
+import RegistrationPage from './features/registration/RegistrationPage'
+import ResultsPage      from './features/results/ResultsPage'
+import FinancePage      from './features/finance/FinancePage'
 
 const router = createBrowserRouter([
   // Root redirect

@@ -9,7 +9,7 @@
  */
 
 import { Menu, Bell } from 'lucide-react'
-import { useAuth } from '../../features/auth/useAuth'
+import { useAuth } from '@/features/auth/UseaAuth'
 import { getInitials } from '../../lib/formatters'
 import styles from './Topbar.module.css'
 

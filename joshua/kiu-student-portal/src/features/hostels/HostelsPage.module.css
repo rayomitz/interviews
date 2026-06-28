@@ -1,0 +1,140 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  padding: 22px 24px;
+  border-radius: var(--radius-lg);
+  background: var(--surface-raised);
+  box-shadow: var(--shadow-raised);
+}
+
+.title {
+  margin: 0;
+  color: var(--ink-900);
+}
+
+.subtitle {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+.reservationBanner,
+.actionSuccess,
+.actionError,
+.emptyState,
+.refreshingNote {
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  background: var(--surface-raised);
+  box-shadow: var(--shadow-raised);
+}
+
+.reservationBanner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink-700);
+}
+
+.reservationBanner svg,
+.actionSuccess {
+  color: var(--green-700);
+}
+
+.actionError {
+  color: #9b2c2c;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.sidebar {
+  position: sticky;
+  top: 18px;
+}
+
+.filterForm {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  border-radius: var(--radius-lg);
+  background: var(--surface-raised);
+  box-shadow: var(--shadow-raised);
+}
+
+.filterTitle {
+  margin: 0;
+  color: var(--ink-900);
+  font-size: 1rem;
+}
+
+.filterLabel {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: var(--ink-700);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.select,
+.numberInput {
+  width: 100%;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  box-shadow: var(--shadow-inset);
+  color: var(--ink-900);
+  font: inherit;
+  padding: 11px 12px;
+}
+
+.select:focus,
+.numberInput:focus {
+  outline: 2px solid var(--green-500);
+  outline-offset: 2px;
+}
+
+.filterActions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.results {
+  min-width: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+.refreshingNote,
+.emptyState {
+  color: var(--muted);
+  margin: 0 0 14px;
+}
+
+@media (max-width: 860px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+  }
+}

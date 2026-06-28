@@ -3,10 +3,7 @@ import { useEffect, useState } from 'react'
 import { Download, GraduationCap, Award } from 'lucide-react'
 import { getResults, downloadTranscript } from './mockData'
 import SemesterCard from '@/components/portal/SemesterCard'
-import LoadingState from '@/components/ui/LoadingState'
-import ErrorState from '@/components/ui/ErrorState'
-import Button from '@/components/ui/Button'
-import Badge from '@/components/ui/Badge'
+import { Badge, Button, ErrorState, LoadingState } from '@/components/ui'
 import styles from './ResultsPage.module.css'
 
 const GRADE_TONE = {

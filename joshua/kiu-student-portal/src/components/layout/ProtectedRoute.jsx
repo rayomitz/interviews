@@ -14,7 +14,7 @@
  */
 
 import { Navigate, Outlet } from 'react-router-dom'
-import { useAuth } from '../../features/auth/useAuth'
+import { useAuth } from '@/features/auth/UseaAuth'
 import { LoadingState } from '../ui/States'
 
 export default function ProtectedRoute() {

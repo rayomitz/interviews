@@ -7,7 +7,7 @@ import {
   GraduationCap,
   AlertCircle,
 } from 'lucide-react'
-import { useAuth } from '@/features/auth/AuthContext'
+import { useAuth } from '@/features/auth/UseaAuth'
 import { loginApi } from '@/features/auth/api'
 import { Button, Input, PasswordInput, Checkbox } from '@/components/ui'
 import styles from './LoginPage.module.css'
@@ -126,7 +126,7 @@ export default function LoginPage() {
           <div className={styles.hero}>
             <h1 className={styles.heroTitle}>Your academic life, in one place.</h1>
             <p className={styles.heroBody}>
-              Register units, track attendance, manage your fees, and check your results —
+              Register units, track attendance, manage your fees, and check your results
               all from a single secure portal.
             </p>
           </div>

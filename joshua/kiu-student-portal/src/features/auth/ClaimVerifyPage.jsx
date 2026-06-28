@@ -13,6 +13,7 @@ export default function ClaimVerifyPage() {
   const navigate = useNavigate()
   const location = useLocation()
   const email = location.state?.email ?? null
+  const registrationNo = location.state?.registrationNo ?? null
 
   const [code, setCode] = useState('')
   const [password, setPassword] = useState('')
@@ -66,7 +67,12 @@ export default function ClaimVerifyPage() {
     setSubmitError(null)
     setLoading(true)
     try {
-      const res = await verifyClaim({ email, code: code.trim(), password })
+      const res = await verifyClaim({
+        registration_no: registrationNo,
+        otp: code.trim(),
+        password,
+        password_confirmation: confirmPassword,
+      })
       const { result } = res.data?.data ?? {}
 
       if (result === 'verified' || !result) {
@@ -85,18 +91,22 @@ export default function ClaimVerifyPage() {
       }
 
       setSubmitError('Something went wrong. Please try again.')
-    } catch {
-      setSubmitError('Verification failed. Please try again.')
+    } catch (err) {
+      if (!err?.response) {
+        setSubmitError('The KORVA API is not reachable right now. Please check your connection or try again when the server is online.')
+        return
+      }
+      setSubmitError(err.response?.data?.message ?? 'Verification failed. Please try again.')
     } finally {
       setLoading(false)
     }
   }
 
   async function handleResend() {
-    if (resendCooldown > 0 || !email) return
+    if (resendCooldown > 0 || !email || !registrationNo) return
     setResendNote(null)
     try {
-      await claimAccount({ email })
+      await claimAccount({ registration_no: registrationNo, email })
       setResendNote('A new code has been sent to your email.')
       startCooldown()
     } catch {
@@ -104,7 +114,7 @@ export default function ClaimVerifyPage() {
     }
   }
 
-  if (!email) {
+  if (!email || !registrationNo) {
     return (
       <div className={styles.page}>
         <div className={styles.card}>

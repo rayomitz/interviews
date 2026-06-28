@@ -3,13 +3,11 @@
  * The useAuth hook lives in useAuth.js (separate file for Fast Refresh compatibility).
  */
 
-import { createContext, useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { getCurrentAccount, logoutApi } from './api'
 import { saveToken, getToken, clearToken } from '../../lib/storage'
+import { AuthContext } from './AuthContextValue'
 
-
-// Named export so useAuth.js can import it
-export const AuthContext = createContext(null)
 
 export function AuthProvider({ children }) {
   const [user, setUser]                       = useState(null)

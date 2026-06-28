@@ -37,11 +37,17 @@ export default function ClaimAccountPage() {
     setSubmitError(null)
     setLoading(true)
     try {
-      const res = await claimAccount({ student_id: studentId.trim(), email: email.trim() })
+      const registrationNo = studentId.trim()
+      const res = await claimAccount({
+        registration_no: registrationNo,
+        email: email.trim(),
+      })
       const { result } = res.data?.data ?? {}
 
       if (result === 'sent' || !result) {
-        navigate('/claim-account/verify', { state: { email: email.trim() } })
+        navigate('/claim-account/verify', {
+          state: { registrationNo, email: email.trim() },
+        })
         return
       }
 
@@ -57,12 +63,16 @@ export default function ClaimAccountPage() {
 
       setSubmitError('Something went wrong. Please try again.')
     } catch (err) {
+      if (!err?.response) {
+        setSubmitError('The KORVA API is not reachable right now. Please check your connection or try again when the server is online.')
+        return
+      }
       const apiMessage = err?.response?.data?.message
       const fieldIssues = err?.response?.data?.errors
       if (fieldIssues) {
         setFieldErrors((prev) => ({
           ...prev,
-          studentId: fieldIssues.student_id?.[0],
+          studentId: fieldIssues.registration_no?.[0],
           email: fieldIssues.email?.[0],
         }))
       }

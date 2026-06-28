@@ -7,7 +7,7 @@ import {
   CalendarCheck,
   LifeBuoy,
 } from 'lucide-react'
-import { useAuth } from '@/features/auth/AuthContext'
+import { useAuth } from '@/features/auth/UseaAuth'
 import { getDashboard } from '@/features/dashboard/api'
 import { LoadingState, ErrorState, Card } from '@/components/ui'
 import StudentHero from '@/components/portal/StudentHero'
@@ -77,26 +77,38 @@ export default function DashboardPage() {
   const [dashboard, setDashboard] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
+  const [retryKey, setRetryKey] = useState(0)
 
-  async function fetchDashboard() {
+  function handleRetry() {
     setLoading(true)
     setError('')
-    try {
-      const res = await getDashboard()
-      setDashboard(res.data.data)
-    } catch (err) {
-      const msg =
-        err.response?.data?.message ??
-        'Could not load your dashboard. Please try again.'
-      setError(msg)
-    } finally {
-      setLoading(false)
-    }
+    setRetryKey((key) => key + 1)
   }
 
   useEffect(() => {
-    fetchDashboard()
-  }, [])
+    let cancelled = false
+
+    ;(async () => {
+      try {
+        const res = await getDashboard()
+        if (!cancelled) {
+          setDashboard(res.data.data)
+          setError('')
+        }
+      } catch (err) {
+        const msg =
+          err.response?.data?.message ??
+          'Could not load your dashboard. Please try again.'
+        if (!cancelled) setError(msg)
+      } finally {
+        if (!cancelled) setLoading(false)
+      }
+    })()
+
+    return () => {
+      cancelled = true
+    }
+  }, [retryKey])
 
   //Loading
   if (loading) {
@@ -108,7 +120,7 @@ export default function DashboardPage() {
     return (
       <ErrorState
         message={error}
-        onRetry={fetchDashboard}
+        onRetry={handleRetry}
         retryLabel="Try again"
       />
     )

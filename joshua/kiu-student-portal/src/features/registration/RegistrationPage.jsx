@@ -3,9 +3,7 @@ import { useEffect, useState } from 'react'
 import { CalendarClock, GraduationCap, CreditCard, BookOpen } from 'lucide-react'
 import { getCurrentRegistration, getRegistrationHistory } from './mockData'
 import CourseTable from '@/components/portal/CourseTable'
-import LoadingState from '@/components/ui/LoadingState'
-import ErrorState from '@/components/ui/ErrorState'
-import Badge from '@/components/ui/Badge'
+import { Badge, ErrorState, LoadingState } from '@/components/ui'
 import styles from './RegistrationPage.module.css'
 
 const FEES_TONE = { paid: 'success', partial: 'warning', unpaid: 'error' }

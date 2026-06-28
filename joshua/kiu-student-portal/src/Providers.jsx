@@ -6,7 +6,7 @@
  * (e.g. a notification provider in a future phase).
  */
 
-import { AuthProvider } from '../features/auth/AuthContext'
+import { AuthProvider } from './features/auth/AuthContext'
 
 export default function Providers({ children }) {
   return (

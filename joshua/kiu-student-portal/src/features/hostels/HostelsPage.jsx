@@ -3,10 +3,7 @@ import { useEffect, useState, useCallback, useMemo, useRef } from 'react'
 import { Building2, Search, RotateCcw } from 'lucide-react'
 import { getHostels, reserveHostel, HOSTEL_TYPES, HOSTEL_GENDERS } from './mockData'
 import HostelCard from '@/components/portal/HostelCard'
-import LoadingState from '@/components/ui/LoadingState'
-import ErrorState from '@/components/ui/ErrorState'
-import Input from '@/components/ui/Input'
-import Button from '@/components/ui/Button'
+import { Button, ErrorState, Input, LoadingState } from '@/components/ui'
 import styles from './HostelsPage.module.css'
 
 const INITIAL_FILTERS = { gender: '', room_type: '', maxPrice: '', search: '' }

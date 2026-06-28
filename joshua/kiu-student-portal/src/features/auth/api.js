@@ -4,7 +4,7 @@
  * which auto-attaches the Bearer token and handles 401.
  */
 
-import api from '../../lib/apiClient'
+import api from '../../lib/apiclient'
 import { API_PATHS } from '../../lib/constants'
 
 // POST /auth/v1/login  { registration_no, password }

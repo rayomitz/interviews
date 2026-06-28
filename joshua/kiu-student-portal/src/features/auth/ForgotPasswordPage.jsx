@@ -31,11 +31,15 @@ export default function ForgotPasswordPage() {
     setSubmitError(null)
     setLoading(true)
     try {
-      await forgotPassword({ identifier: identifier.trim() })
+      await forgotPassword({ registration_no: identifier.trim() })
       // Always show the same success state regardless of whether the
       // identifier matched an account — avoids leaking which accounts exist.
       setSent(true)
     } catch (err) {
+      if (!err?.response) {
+        setSubmitError('The KORVA API is not reachable right now. Please check your connection or try again when the server is online.')
+        return
+      }
       setSubmitError(
         err?.response?.data?.message ?? 'Something went wrong. Please try again.'
       )

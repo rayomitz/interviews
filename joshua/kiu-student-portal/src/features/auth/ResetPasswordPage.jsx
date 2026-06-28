@@ -46,9 +46,10 @@ export default function ResetPasswordPage() {
     setLoading(true)
     try {
       const res = await resetPassword({
-        identifier: identifier.trim(),
-        code: code.trim(),
+        registration_no: identifier.trim(),
+        otp: code.trim(),
         password,
+        password_confirmation: confirmPassword,
       })
       const { result } = res.data?.data ?? {}
 
@@ -69,6 +70,10 @@ export default function ResetPasswordPage() {
 
       setSubmitError('Something went wrong. Please try again.')
     } catch (err) {
+      if (!err?.response) {
+        setSubmitError('The KORVA API is not reachable right now. Please check your connection or try again when the server is online.')
+        return
+      }
       setSubmitError(err?.response?.data?.message ?? 'Reset failed. Please try again.')
     } finally {
       setLoading(false)
