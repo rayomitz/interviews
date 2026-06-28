@@ -1,0 +1,49 @@
+.card {
+  border-radius: var(--radius-lg);
+}
+
+/*Variants*/
+
+.default {
+  background: var(--surface-raised);
+  box-shadow: var(--shadow-raised);
+}
+
+.green {
+  background: linear-gradient(135deg, var(--green-700), var(--green-600));
+  box-shadow:
+    6px 6px 16px rgba(15, 90, 43, 0.40),
+    -4px -4px 12px rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+.flat {
+  background: var(--surface-soft);
+  border: 1px solid var(--line);
+}
+
+/*Padding*/
+
+.pad-none  { padding: 0; }
+.pad-sm    { padding: 14px; }
+.pad-md    { padding: 20px; }
+.pad-lg    { padding: 28px; }
+
+/*Clickable*/
+
+.clickable {
+  cursor: pointer;
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.clickable:hover {
+  box-shadow:
+    12px 12px 28px rgba(111, 126, 113, 0.30),
+    -12px -12px 28px rgba(255, 255, 255, 0.92);
+  transform: translateY(-2px);
+}
+
+.clickable:active {
+  box-shadow: var(--shadow-btn-active);
+  transform: translateY(0);
+}

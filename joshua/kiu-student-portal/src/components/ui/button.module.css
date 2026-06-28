@@ -1,0 +1,127 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  transition: box-shadow var(--transition-fast), transform var(--transition-fast), background var(--transition-fast);
+  white-space: nowrap;
+  text-decoration: none;
+  letter-spacing: 0.2px;
+}
+
+.btn:disabled {
+  opacity: 0.52;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/*Sizes*/
+
+.sm {
+  font-size: var(--text-sm);
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+}
+
+.md {
+  font-size: var(--text-base);
+  padding: 10px 20px;
+}
+
+.lg {
+  font-size: var(--text-md);
+  padding: 13px 28px;
+  border-radius: var(--radius-lg);
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+/*Variants*/
+
+.primary {
+  background: linear-gradient(135deg, var(--green-700), var(--green-600));
+  color: #fff;
+  box-shadow:
+    5px 5px 14px rgba(15, 90, 43, 0.35),
+    -3px -3px 8px rgba(255, 255, 255, 0.30);
+}
+
+.primary:hover:not(:disabled) {
+  box-shadow:
+    7px 7px 18px rgba(15, 90, 43, 0.40),
+    -4px -4px 10px rgba(255, 255, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+.primary:active:not(:disabled) {
+  box-shadow: var(--shadow-btn-active);
+  transform: translateY(0);
+}
+
+.secondary {
+  background: var(--surface-raised);
+  color: var(--ink-700);
+  box-shadow: var(--shadow-raised-sm);
+}
+
+.secondary:hover:not(:disabled) {
+  box-shadow: var(--shadow-raised);
+  color: var(--ink-900);
+  transform: translateY(-1px);
+}
+
+.secondary:active:not(:disabled) {
+  box-shadow: var(--shadow-btn-active);
+  transform: translateY(0);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--ink-500);
+  box-shadow: none;
+}
+
+.ghost:hover:not(:disabled) {
+  background: var(--surface-soft);
+  color: var(--ink-900);
+}
+
+.ghost:active:not(:disabled) {
+  background: var(--surface);
+  box-shadow: var(--shadow-inset-sm);
+}
+
+.danger {
+  background: var(--error-bg);
+  color: var(--error);
+  box-shadow: var(--shadow-raised-sm);
+}
+
+.danger:hover:not(:disabled) {
+  background: var(--error);
+  color: #fff;
+  box-shadow: 5px 5px 14px rgba(220, 38, 38, 0.30);
+  transform: translateY(-1px);
+}
+
+/*Icon & spinner*/
+
+.icon {
+  display: flex;
+  align-items: center;
+}
+
+.spinner {
+  animation: spin 0.75s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

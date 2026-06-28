@@ -1,0 +1,57 @@
+.wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* hide native checkbox visually */
+.input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.box {
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  background: var(--surface);
+  box-shadow: var(--shadow-inset-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+/* checked state — draw a checkmark with pseudo-element */
+.input:checked + .box {
+  background: var(--green-600);
+  box-shadow:
+    inset 2px 2px 5px rgba(11, 61, 31, 0.3),
+    inset -2px -2px 5px rgba(255,255,255,0.1);
+}
+
+.input:checked + .box::after {
+  content: '';
+  display: block;
+  width: 5px;
+  height: 9px;
+  border: 2px solid #fff;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg) translateY(-1px);
+}
+
+.input:focus-visible + .box {
+  outline: 2px solid var(--green-500);
+  outline-offset: 2px;
+}
+
+.label {
+  font-size: var(--text-sm);
+  color: var(--ink-700);
+}

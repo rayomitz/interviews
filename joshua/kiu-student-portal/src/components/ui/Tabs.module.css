@@ -1,0 +1,43 @@
+.tabBar {
+  display: flex;
+  gap: 4px;
+  background: var(--surface);
+  box-shadow: var(--shadow-inset-sm);
+  border-radius: var(--radius-md);
+  padding: 4px;
+  overflow-x: auto;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--muted);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.tab:hover {
+  color: var(--ink-700);
+  background: var(--surface-soft);
+}
+
+.tab.active {
+  background: var(--surface-raised);
+  color: var(--green-700);
+  font-weight: 600;
+  box-shadow: var(--shadow-raised-sm);
+}
+
+.tabIcon {
+  display: flex;
+  align-items: center;
+}
