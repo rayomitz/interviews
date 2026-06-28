@@ -1,0 +1,39 @@
+/* ComingSoon.module.css */
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 56px 24px;
+  gap: 12px;
+}
+
+.icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  background: var(--green-100);
+  color: var(--green-700);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-raised);
+  margin-bottom: 4px;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink-900);
+  margin: 0;
+}
+
+.desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 0;
+  max-width: 320px;
+  line-height: 1.6;
+}
