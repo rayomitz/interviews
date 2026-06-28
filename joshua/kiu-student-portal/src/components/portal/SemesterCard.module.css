@@ -1,0 +1,65 @@
+/* src/components/portal/SemesterCard.module.css */
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  background: var(--surface-raised);
+  border: none;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-raised);
+  padding: 14px 16px;
+  cursor: pointer;
+  text-align: left;
+  transition: box-shadow 0.15s ease;
+}
+
+.cardActive {
+  box-shadow: var(--shadow-inset);
+  border: 1px solid var(--green-500);
+}
+
+.left {
+  flex: 1;
+  min-width: 0;
+}
+
+.term {
+  font-weight: 600;
+  color: var(--ink-900);
+  margin: 0;
+  font-size: 0.92rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.meta {
+  margin: 2px 0 0;
+  font-size: 0.76rem;
+  color: var(--muted);
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+
+.gpa {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--green-700);
+}
+
+.gpaLabel {
+  font-size: 0.68rem;
+  color: var(--muted);
+}
+
+.chevron {
+  color: var(--muted);
+  flex-shrink: 0;
+}

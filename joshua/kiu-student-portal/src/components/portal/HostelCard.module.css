@@ -1,0 +1,123 @@
+/* src/components/portal/HostelCard.module.css */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface-raised);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-raised);
+  overflow: hidden;
+  transition: transform 0.15s ease;
+}
+
+.cardReserved {
+  border: 1px solid var(--green-500);
+}
+
+.imagePlaceholder {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--green-100), var(--surface-soft));
+}
+
+.imageIcon {
+  color: var(--green-600);
+  opacity: 0.6;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px 20px 20px;
+}
+
+.headerRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.name {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink-900);
+  margin: 0;
+}
+
+.metaRow {
+  display: flex;
+  gap: 16px;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.metaItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.tagsRow {
+  display: flex;
+  gap: 6px;
+}
+
+.amenities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.amenityChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: var(--surface-soft);
+  box-shadow: var(--shadow-inset);
+  color: var(--ink-700);
+  font-size: 0.72rem;
+}
+
+.footerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.priceBlock {
+  display: flex;
+  flex-direction: column;
+}
+
+.price {
+  font-weight: 700;
+  color: var(--green-700);
+  font-size: 1rem;
+}
+
+.priceUnit {
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.roomsLeftNote {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #b3651a;
+  font-weight: 500;
+}
