@@ -1,0 +1,51 @@
+.hamburger {
+  display: none;  /* shown only on mobile via media query below */
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  box-shadow: var(--shadow-raised-sm);
+  color: var(--ink-700);
+  cursor: pointer;
+  transition: box-shadow var(--transition-fast);
+}
+
+.hamburger:hover {
+  box-shadow: var(--shadow-raised);
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+}
+
+.iconBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: var(--surface);
+  box-shadow: var(--shadow-raised-sm);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.iconBtn:hover {
+  color: var(--ink-900);
+  box-shadow: var(--shadow-raised);
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  font-size: var(--text-sm);
+  cursor: default;
+}

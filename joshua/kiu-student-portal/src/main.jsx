@@ -4,7 +4,7 @@ import './styles/tokens.css'
 import './styles/base.css'
 import './styles/neumorphism.css'
 import './styles/layout.css'
-import App from './app/App.jsx'
+import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
