@@ -153,7 +153,7 @@ export default function CheckInPage() {
             variant="primary"
             size="lg"
             loading={loading}
-            icon={QrCode}
+            icon={<QrCode size={16} />}
             className={styles.submitBtn}
           >
             {loading ? 'Checking in…' : 'Check In'}

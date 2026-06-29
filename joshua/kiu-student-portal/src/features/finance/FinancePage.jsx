@@ -83,7 +83,7 @@ export default function FinancePage() {
           <h1>Fees, payments & balances</h1>
           <p>Review invoices, payments, sponsorship, and hostel balances.</p>
         </div>
-        <Button icon={CreditCard}>Make payment</Button>
+        <Button icon={<CreditCard size={16} />}>Make payment</Button>
       </section>
 
       <FinanceKpiGrid

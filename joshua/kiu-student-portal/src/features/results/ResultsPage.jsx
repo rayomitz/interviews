@@ -85,7 +85,7 @@ export default function ResultsPage() {
           <p className={styles.heroGpa}>{results.cumulative_gpa.toFixed(2)}</p>
           <p className={styles.heroCredits}>{results.total_credits_earned} credits earned</p>
         </div>
-        <Button onClick={handleDownload} loading={downloading} icon={Download}>
+        <Button onClick={handleDownload} loading={downloading} icon={<Download size={16} />}>
           Download transcript
         </Button>
       </div>
@@ -133,7 +133,7 @@ export default function ResultsPage() {
                     <td>{unit.course_name}</td>
                     <td>{unit.credits}</td>
                     <td>
-                      <Badge tone={gradeTone(unit.grade)}>{unit.grade}</Badge>
+                      <Badge variant={gradeTone(unit.grade)}>{unit.grade}</Badge>
                     </td>
                     <td>{unit.grade_point.toFixed(1)}</td>
                   </tr>
