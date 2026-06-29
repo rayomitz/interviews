@@ -26,7 +26,7 @@ export default function Tabs({ tabs = [], active, onChange }) {
           className={clsx(styles.tab, active === tab.key && styles.active)}
           onClick={() => onChange(tab.key)}
         >
-          {tab.icon && <span className={styles.tabIcon}>{tab.icon}</span>}
+          {tab.icon && <span className={styles.tabIcon}><tab.icon size={14} /></span>}
           {tab.label}
         </button>
       ))}

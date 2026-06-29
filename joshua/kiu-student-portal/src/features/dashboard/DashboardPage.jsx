@@ -7,7 +7,7 @@ import {
   CalendarCheck,
   LifeBuoy,
 } from 'lucide-react'
-import { useAuth } from '@/features/auth/UseaAuth'
+import { useAuth } from '@/features/auth/useAuth'
 import { getDashboard } from '@/features/dashboard/api'
 import { LoadingState, ErrorState, Card } from '@/components/ui'
 import StudentHero from '@/components/portal/StudentHero'

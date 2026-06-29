@@ -7,7 +7,7 @@ import {
   GraduationCap,
   AlertCircle,
 } from 'lucide-react'
-import { useAuth } from '@/features/auth/UseaAuth'
+import { useAuth } from '@/features/auth/useAuth'
 import { loginApi } from '@/features/auth/api'
 import { Button, Input, PasswordInput, Checkbox } from '@/components/ui'
 import styles from './LoginPage.module.css'

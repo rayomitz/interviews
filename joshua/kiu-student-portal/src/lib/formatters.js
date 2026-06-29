@@ -2,17 +2,18 @@
  * Shared formatting utilities.
  */
 
-/** Format ISO date string "Jan 1, 2025" */
-export function formatDate(dateStr) {
+/** Format ISO date string → "Jan 1, 2025" (pass options to override defaults) */
+export function formatDate(dateStr, options) {
   if (!dateStr) return '—'
   return new Date(dateStr).toLocaleDateString('en-UG', {
     year: 'numeric',
     month: 'short',
     day: 'numeric',
+    ...options,
   })
 }
 
-/** Get initials from a full name "Jane Doe" to "JD" */
+/** Get initials from a full name — "Jane Doe" → "JD" */
 export function getInitials(name) {
   if (!name) return '?'
   return name

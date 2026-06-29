@@ -12,7 +12,7 @@ import {
   BadgeCheck,
 } from 'lucide-react'
 
-import { useAuth } from '@/features/auth/UseaAuth'
+import { useAuth } from '@/features/auth/useAuth'
 import { getDashboard } from '@/features/dashboard/api'
 
 import {

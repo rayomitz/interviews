@@ -7,7 +7,7 @@ import {
   LayoutDashboard, User, CalendarCheck, Building2,
   BookOpen, BarChart2, Wallet, LogOut, GraduationCap,
 } from 'lucide-react'
-import { useAuth } from '@/features/auth/UseaAuth'
+import { useAuth } from '@/features/auth/useAuth'
 import styles from './Sidebar.module.css'
 
 const NAV_ITEMS = [
