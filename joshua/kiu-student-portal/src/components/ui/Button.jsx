@@ -7,6 +7,7 @@
  *   <Button variant="ghost" icon={<Trash2 />} />
  *   <Button loading>Saving...</Button>
  *   <Button disabled>Not allowed</Button>
+ *   <Button as={Link} to="/some-path">Go somewhere</Button>
  */
 
 import { Loader2 } from 'lucide-react'
@@ -15,11 +16,12 @@ import styles from './button.module.css'
 
 export default function Button({
   children,
-  variant = 'primary',  // 'primary' | 'secondary' | 'ghost' | 'danger'
-  size = 'md',          // 'sm' | 'md' | 'lg'
+  as: Component = 'button',     // allows <Button as={Link} to="...">
+  variant = 'primary',
+  size = 'md',
   loading = false,
   disabled = false,
-  icon = null,          // lucide icon element shown before children
+  icon = null,                  // pass already-rendered JSX: icon={<QrCode size={16} />}
   fullWidth = false,
   type = 'button',
   onClick,
@@ -29,15 +31,17 @@ export default function Button({
   const isDisabled = disabled || loading
 
   return (
-    <button
-      type={type}
+    <Component
+      // only pass type and disabled when rendering a real <button>
+      // Link doesn't accept these and React will warn
+      {...(Component === 'button' ? { type, disabled: isDisabled } : {})}
       onClick={onClick}
-      disabled={isDisabled}
       className={clsx(
         styles.btn,
         styles[variant],
         styles[size],
         fullWidth && styles.fullWidth,
+        isDisabled && styles.disabled,
         className
       )}
       {...rest}
@@ -48,6 +52,6 @@ export default function Button({
         <span className={styles.icon}>{icon}</span>
       ) : null}
       {children && <span>{children}</span>}
-    </button>
+    </Component>
   )
 }

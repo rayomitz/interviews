@@ -76,7 +76,7 @@ export default function AttendancePage() {
             {student?.name ?? 'Student'} · {student?.registration_no ?? 'Current term'}
           </p>
         </div>
-        <Button as={Link} to="/app/attendance/check-in" icon={QrCode}>
+        <Button as={Link} to="/app/attendance/check-in" icon={<QrCode size={16} />}>
           Check in
         </Button>
       </section>
