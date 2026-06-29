@@ -1,15 +1,15 @@
-/* ============================================================
+/* 
    KIU Student Portal — Design Tokens
    Green Neumorphism system
-   ============================================================ */
+   */
 
 :root {
-  /* ── Surfaces ─────────────────────────────────────────── */
+  /* Surfaces*/
   --surface:        #e9eee9;   /* app background */
   --surface-soft:   #f3f7f3;   /* lighter panels */
   --surface-raised: #eef4ee;   /* raised card bg */
 
-  /* ── Green palette ────────────────────────────────────── */
+  /*Green palette*/
   --green-900: #0b3d1f;
   --green-800: #0f5a2b;
   --green-700: #147535;
@@ -19,13 +19,13 @@
   --green-100: #dff3e5;
   --green-50:  #f0faf2;
 
-  /* ── Ink / text ───────────────────────────────────────── */
+  /*Ink / text*/
   --ink-900: #132018;   /* headings */
   --ink-700: #33463a;   /* body text */
   --ink-500: #55705e;   /* secondary text */
   --muted:   #708075;   /* captions, placeholders */
 
-  /* ── Semantic ─────────────────────────────────────────── */
+  /*Semantic*/
   --success: #25b84f;
   --warning: #d97706;
   --error:   #dc2626;
@@ -36,10 +36,10 @@
   --error-bg:   #fee2e2;
   --info-bg:    #e0f2fe;
 
-  /* ── Borders / dividers ───────────────────────────────── */
+  /*Borders / dividers*/
   --line: rgba(19, 32, 24, 0.08);
 
-  /* ── Neumorphic shadows ───────────────────────────────── */
+  /*Neumorphic shadows*/
   --shadow-raised:
     10px 10px 24px rgba(111, 126, 113, 0.28),
     -10px -10px 24px rgba(255, 255, 255, 0.90);
@@ -60,14 +60,14 @@
     inset 2px 2px 6px rgba(111, 126, 113, 0.30),
     inset -2px -2px 6px rgba(255, 255, 255, 0.70);
 
-  /* ── Border radius ────────────────────────────────────── */
+  /*Border radius*/
   --radius-xl: 24px;
   --radius-lg: 18px;
   --radius-md: 12px;
   --radius-sm: 8px;
   --radius-xs: 5px;
 
-  /* ── Spacing scale ────────────────────────────────────── */
+  /* Spacing scale */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -78,7 +78,7 @@
   --space-10: 40px;
   --space-12: 48px;
 
-  /* ── Typography ───────────────────────────────────────── */
+  /* Typography*/
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
 
@@ -91,11 +91,11 @@
   --text-2xl:  24px;
   --text-3xl:  30px;
 
-  /* ── Sidebar ──────────────────────────────────────────── */
+  /*Sidebar */
   --sidebar-width: 240px;
   --topbar-height: 60px;
 
-  /* ── Transitions ──────────────────────────────────────── */
+  /* Transitions*/
   --transition-fast: 140ms ease;
   --transition-base: 220ms ease;
 }

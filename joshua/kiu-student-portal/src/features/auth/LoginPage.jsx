@@ -12,7 +12,7 @@ import { loginApi } from '@/features/auth/api'
 import { Button, Input, PasswordInput, Checkbox } from '@/components/ui'
 import styles from './LoginPage.module.css'
 
-// Quick-link cards shown on the left marketing panel
+// Quick-link cards shown on the left marketing pnel
 const QUICK_LINKS = [
   {
     icon: Building2,

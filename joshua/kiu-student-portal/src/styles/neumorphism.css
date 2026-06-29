@@ -1,9 +1,9 @@
-/* ============================================================
+/*
    KIU Student Portal — Neumorphism Utilities
    These classes apply the soft raised / inset effects
-   ============================================================ */
+  */
 
-/* ── Raised panel (cards, sidebar, topbar, etc.) ─────────── */
+/*Raised panel (cards, sidebar, topbar, etc.)*/
 
 .neu-raised {
   background: var(--surface-raised);
@@ -17,7 +17,7 @@
   border-radius: var(--radius-md);
 }
 
-/* ── Inset (inputs, search bar, selected/active states) ─── */
+/*Inset (inputs, search bar, selected/active states)*/
 
 .neu-inset {
   background: var(--surface);
@@ -31,7 +31,7 @@
   border-radius: var(--radius-sm);
 }
 
-/* ── Flat surface (no shadow — e.g. table bg) ─────────────── */
+/*Flat surface (no shadow — e.g. table bg)*/
 
 .neu-flat {
   background: var(--surface-soft);
@@ -39,7 +39,7 @@
   border: 1px solid var(--line);
 }
 
-/* ── Green accent raised (active nav, primary stat) ───────── */
+/*Green accent raised (active nav, primary stat)*/
 
 .neu-green {
   background: linear-gradient(135deg, var(--green-700), var(--green-600));
@@ -50,7 +50,7 @@
   color: #fff;
 }
 
-/* ── Progress well (inset track for progress bars) ────────── */
+/* Progress well (inset track for progress bars)*/
 
 .neu-progress-track {
   background: var(--surface);
@@ -67,7 +67,7 @@
   transition: width var(--transition-base);
 }
 
-/* ── Avatar circle ────────────────────────────────────────── */
+/*Avatar circle*/
 
 .neu-avatar {
   display: flex;
@@ -82,7 +82,7 @@
   flex-shrink: 0;
 }
 
-/* ── Clickable card hover/active transitions ──────────────── */
+/*Clickable card hover/active transitions*/
 
 .neu-card-clickable {
   cursor: pointer;
@@ -101,7 +101,7 @@
   transform: translateY(0);
 }
 
-/* ── Badge ────────────────────────────────────────────────── */
+/*Badge*/
 
 .neu-badge {
   display: inline-flex;

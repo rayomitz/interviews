@@ -1,9 +1,9 @@
-/* ============================================================
+/*
    KIU Student Portal — Layout
    App shell: sidebar + topbar + content
-   ============================================================ */
+   */
 
-/* ── App shell ───────────────────────────────────────────── */
+/*App shell*/
 
 .app-shell {
   display: flex;
@@ -11,7 +11,7 @@
   background: var(--surface);
 }
 
-/* ── Sidebar ─────────────────────────────────────────────── */
+/*Sidebar*/
 
 .sidebar {
   width: var(--sidebar-width);
@@ -120,7 +120,7 @@
   margin-top: var(--space-3);
 }
 
-/* ── Topbar ──────────────────────────────────────────────── */
+/*Topbar*/
 
 .topbar {
   position: fixed;
@@ -162,7 +162,7 @@
   font-weight: 600;
 }
 
-/* ── Main content ────────────────────────────────────────── */
+/*Main content*/
 
 .main-content {
   margin-left: var(--sidebar-width);
@@ -172,7 +172,7 @@
   flex: 1;
 }
 
-/* ── Page section ────────────────────────────────────────── */
+/*Page section*/
 
 .page-section {
   margin-bottom: var(--space-8);
@@ -182,7 +182,7 @@
   margin-bottom: var(--space-6);
 }
 
-/* ── Grid helpers ────────────────────────────────────────── */
+/*Grid helpers*/
 
 .grid-2 {
   display: grid;
@@ -202,7 +202,7 @@
   gap: var(--space-5);
 }
 
-/* ── Auth layout (login / claim / forgot) ────────────────── */
+/*Auth layout (login / claim / forgot) */
 
 .auth-shell {
   min-height: 100vh;
@@ -243,7 +243,7 @@
   object-fit: contain;
 }
 
-/* ── Responsive ──────────────────────────────────────────── */
+/*Responsive*/
 
 @media (max-width: 1024px) {
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
