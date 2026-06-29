@@ -1,0 +1,1651 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="csrf-token" content="89ryjefhzC0Y6WA9Kx3g9UPUdRY0tg6DEubUiEe6">
+    <title>Sign in — KORVA</title>
+    <link rel="icon" type="image/png" href="https://devopshub.kiu.ac.ug/erpv2-demo/favicon.png">
+    <link rel="apple-touch-icon" href="https://devopshub.kiu.ac.ug/erpv2-demo/assets/kiu/icon.png">
+    <link rel="stylesheet" href="https://devopshub.kiu.ac.ug/erpv2-demo/assets/kiu/theme.css?v=1780756791">
+    <!-- Livewire Styles -->
+    <style>
+        [wire\:loading][wire\:loading],
+        [wire\:loading\.delay][wire\:loading\.delay],
+        [wire\:loading\.list-item][wire\:loading\.list-item],
+        [wire\:loading\.inline-block][wire\:loading\.inline-block],
+        [wire\:loading\.inline][wire\:loading\.inline],
+        [wire\:loading\.block][wire\:loading\.block],
+        [wire\:loading\.flex][wire\:loading\.flex],
+        [wire\:loading\.table][wire\:loading\.table],
+        [wire\:loading\.grid][wire\:loading\.grid],
+        [wire\:loading\.inline-flex][wire\:loading\.inline-flex] {
+            display: none;
+        }
+
+        [wire\:loading\.delay\.none][wire\:loading\.delay\.none],
+        [wire\:loading\.delay\.shortest][wire\:loading\.delay\.shortest],
+        [wire\:loading\.delay\.shorter][wire\:loading\.delay\.shorter],
+        [wire\:loading\.delay\.short][wire\:loading\.delay\.short],
+        [wire\:loading\.delay\.default][wire\:loading\.delay\.default],
+        [wire\:loading\.delay\.long][wire\:loading\.delay\.long],
+        [wire\:loading\.delay\.longer][wire\:loading\.delay\.longer],
+        [wire\:loading\.delay\.longest][wire\:loading\.delay\.longest] {
+            display: none;
+        }
+
+        [wire\:offline][wire\:offline] {
+            display: none;
+        }
+
+        [wire\:dirty]:not(textarea):not(input):not(select) {
+            display: none;
+        }
+
+        :root {
+            --livewire-progress-bar-color: #2299dd;
+        }
+
+        [x-cloak] {
+            display: none !important;
+        }
+
+        [wire\:cloak] {
+            display: none !important;
+        }
+
+        dialog#livewire-error::backdrop {
+            background-color: rgba(0, 0, 0, .6);
+        }
+    </style>
+</head>
+
+<body>
+    <div wire:snapshot="{&quot;data&quot;:{&quot;email&quot;:&quot;&quot;},&quot;memo&quot;:{&quot;id&quot;:&quot;vUBvINnpv8ytIZfRYFOl&quot;,&quot;name&quot;:&quot;auth.login&quot;,&quot;path&quot;:&quot;auth\/login&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;release&quot;:&quot;a-a-a&quot;,&quot;children&quot;:[],&quot;scripts&quot;:[],&quot;assets&quot;:[],&quot;errors&quot;:[],&quot;locale&quot;:&quot;en&quot;,&quot;islands&quot;:[]},&quot;checksum&quot;:&quot;df677d76a6ee0ede606b04614e1f79095b616afac1143c32c89bf34a54a5508a&quot;}"
+        wire:effects="{&quot;partials&quot;:[]}" wire:id="vUBvINnpv8ytIZfRYFOl" wire:name="auth.login">
+        <script>
+            document.documentElement.setAttribute('data-kiu-theme', "kiu_green");
+        </script>
+        <style>
+            /* ═══════════════════════════════════════════════
+   KORVA auth shell — shared sage palette + chrome
+   Used by login, register, forgot-password, and
+   reset-password. Tokens mirror
+   resources/css/filament/admin/theme.css so the
+   palette stays continuous post-login.
+   ═══════════════════════════════════════════════ */
+            :root {
+                --brand-50: #ECFBF1;
+                --brand-100: #D2F4DD;
+                --brand-200: #A8E8BC;
+                --brand-300: #71D894;
+                --brand-400: #45C56E;
+                --brand-500: #2EAF54;
+                --brand-600: #1F9544;
+                --brand-700: #1A7A39;
+                --brand-800: #176030;
+                --brand-900: #134E29;
+                --brand-950: #0C3D20;
+
+                --kiu-surface: #FFFFFF;
+                --kiu-surface-raised: #FFFFFF;
+                --kiu-surface-sunken: #F2FBF5;
+                --kiu-page-bg: #EAF6EE;
+                --kiu-pill-bg: #E8F7EE;
+
+                --kiu-border: #C9E9D4;
+                --kiu-border-soft: #DEF2E5;
+                --kiu-border-muted: #A9D9BA;
+
+                --kiu-text: #0B1F12;
+                --kiu-text-secondary: #2C4A37;
+                --kiu-text-muted: #5E7A68;
+                --kiu-text-subtle: #8AA593;
+
+                --kiu-danger-bg: #FEE2E2;
+                --kiu-danger-fg: #991B1B;
+                --kiu-danger-ring: #FECACA;
+                --kiu-info-bg: #EFF6FF;
+                --kiu-info-fg: #1D4ED8;
+                --kiu-info-ring: #BFDBFE;
+                --kiu-success-bg: #D2F4DD;
+                --kiu-success-fg: #176030;
+                --kiu-success-ring: #A8E8BC;
+
+                --kiu-shadow-sm: 0 1px 2px color-mix(in srgb, #353E22 5%, transparent);
+                --kiu-shadow-md: 0 1px 2px color-mix(in srgb, #353E22 4%, transparent),
+                    0 6px 18px color-mix(in srgb, #353E22 7%, transparent);
+                --kiu-shadow-lg: 0 2px 4px color-mix(in srgb, #353E22 5%, transparent),
+                    0 18px 50px color-mix(in srgb, #353E22 12%, transparent);
+
+                --radius-sm: 8px;
+                --radius-md: 12px;
+                --radius-lg: 16px;
+                --radius-xl: 22px;
+            }
+
+            .dark {
+                --kiu-surface: #16231B;
+                --kiu-surface-raised: #1E2E24;
+                --kiu-surface-sunken: #101A13;
+                --kiu-page-bg: #0B130E;
+                --kiu-pill-bg: #1E2E24;
+
+                --kiu-border: rgba(255, 255, 255, 0.06);
+                --kiu-border-soft: rgba(255, 255, 255, 0.03);
+                --kiu-border-muted: rgba(255, 255, 255, 0.12);
+
+                --kiu-text: #E6F0E9;
+                --kiu-text-secondary: #AEC6B7;
+                --kiu-text-muted: #82998A;
+                --kiu-text-subtle: #5F7567;
+
+                --kiu-danger-bg: rgba(239, 68, 68, 0.14);
+                --kiu-danger-fg: #FCA5A5;
+                --kiu-danger-ring: rgba(239, 68, 68, 0.35);
+                --kiu-info-bg: rgba(59, 130, 246, 0.14);
+                --kiu-info-fg: #93C5FD;
+                --kiu-info-ring: rgba(59, 130, 246, 0.35);
+                --kiu-success-bg: rgba(46, 175, 84, 0.14);
+                --kiu-success-fg: #7FE0A0;
+                --kiu-success-ring: rgba(46, 175, 84, 0.35);
+
+                --kiu-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+                --kiu-shadow-md: 0 1px 2px rgba(0, 0, 0, 0.35), 0 8px 24px rgba(0, 0, 0, 0.5);
+                --kiu-shadow-lg: 0 2px 4px rgba(0, 0, 0, 0.4), 0 24px 70px rgba(0, 0, 0, 0.65);
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+                min-height: 100%;
+                font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+                font-feature-settings: 'ss01' on, 'cv11' on;
+                -webkit-font-smoothing: antialiased;
+                text-rendering: optimizeLegibility;
+                background: var(--kiu-page-bg);
+                color: var(--kiu-text);
+                transition: background 0.3s ease, color 0.3s ease;
+            }
+
+            /* ─── Theme toggle pill (top-right) ─── */
+            .theme-toggle {
+                position: fixed;
+                top: 20px;
+                right: 24px;
+                z-index: 60;
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                padding: 8px 12px 8px 10px;
+                border-radius: 999px;
+                border: 1px solid var(--kiu-border-muted);
+                background: color-mix(in srgb, var(--kiu-surface-raised) 78%, transparent);
+                color: var(--kiu-text-secondary);
+                font: 600 11.5px 'Inter', sans-serif;
+                letter-spacing: 0.02em;
+                cursor: pointer;
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                box-shadow: var(--kiu-shadow-sm);
+                transition: all 0.18s ease;
+            }
+
+            .theme-toggle:hover {
+                border-color: var(--brand-300);
+                color: var(--brand-800);
+                transform: translateY(-1px);
+            }
+
+            .dark .theme-toggle {
+                border-color: rgba(255, 255, 255, 0.18);
+                background: rgba(20, 22, 11, 0.55);
+                color: var(--kiu-text);
+            }
+
+            .dark .theme-toggle:hover {
+                color: var(--brand-200);
+                border-color: rgba(255, 255, 255, 0.32);
+            }
+
+            .theme-toggle svg {
+                color: var(--brand-700);
+            }
+
+            .dark .theme-toggle svg {
+                color: var(--brand-300);
+            }
+
+            .theme-toggle__sun,
+            .theme-toggle__moon {
+                display: inline-flex;
+            }
+
+            .dark .theme-toggle__sun {
+                display: none;
+            }
+
+            .theme-toggle__moon {
+                display: none;
+            }
+
+            .dark .theme-toggle__moon {
+                display: inline-flex;
+            }
+
+            .theme-toggle__label-light {
+                display: inline;
+            }
+
+            .theme-toggle__label-dark {
+                display: none;
+            }
+
+            .dark .theme-toggle__label-light {
+                display: none;
+            }
+
+            .dark .theme-toggle__label-dark {
+                display: inline;
+            }
+
+            /* ─── Shell ─── */
+            .shell {
+                display: grid;
+                grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+                min-height: 100vh;
+            }
+
+            /* ─── Billboard (left) ─── */
+            .billboard {
+                position: relative;
+                overflow: hidden;
+                padding: 48px 56px 56px;
+                color: #fff;
+                background:
+                    radial-gradient(circle at 18% 0%, color-mix(in srgb, var(--brand-400) 38%, transparent), transparent 55%),
+                    radial-gradient(circle at 100% 100%, rgba(0, 0, 0, 0.32), transparent 60%),
+                    linear-gradient(140deg, var(--brand-900) 0%, var(--brand-800) 38%, var(--brand-600) 100%);
+                display: grid;
+                grid-template-rows: auto 1fr auto;
+                gap: 28px;
+            }
+
+            .billboard::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1.4px);
+                background-size: 22px 22px;
+                mask-image: radial-gradient(circle at 70% 30%, #000 0%, transparent 75%);
+                -webkit-mask-image: radial-gradient(circle at 70% 30%, #000 0%, transparent 75%);
+                opacity: 0.55;
+                pointer-events: none;
+            }
+
+            .billboard>* {
+                position: relative;
+                z-index: 1;
+            }
+
+            .billboard__top {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 16px;
+            }
+
+            .brand-lockup {
+                display: inline-flex;
+                align-items: center;
+                gap: 12px;
+                color: #fff;
+                text-decoration: none;
+            }
+
+            .brand-lockup__mark {
+                width: 48px;
+                height: 48px;
+                border-radius: 12px;
+                background: #fff;
+                border: 1px solid rgba(255, 255, 255, 0.28);
+                padding: 4px;
+                box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .brand-lockup__mark img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+
+            .brand-lockup__text {
+                line-height: 1.18;
+            }
+
+            .brand-lockup__text strong {
+                display: block;
+                font-family: 'Fraunces', serif;
+                font-weight: 600;
+                font-size: 17px;
+                letter-spacing: -0.01em;
+            }
+
+            .brand-lockup__institution {
+                display: block;
+                margin-top: 2px;
+                font-size: 12px;
+                font-weight: 600;
+                color: rgba(255, 255, 255, 0.88);
+                letter-spacing: -0.005em;
+            }
+
+            .brand-lockup__text small {
+                display: block;
+                margin-top: 2px;
+                font-size: 10px;
+                font-weight: 700;
+                letter-spacing: 0.18em;
+                text-transform: uppercase;
+                color: rgba(255, 255, 255, 0.6);
+            }
+
+            .billboard__nav {
+                display: inline-flex;
+                align-items: center;
+                gap: 4px;
+                padding: 3px;
+                border-radius: 999px;
+                background: rgba(255, 255, 255, 0.08);
+                border: 1px solid rgba(255, 255, 255, 0.14);
+                backdrop-filter: blur(8px);
+            }
+
+            .billboard__nav a {
+                padding: 6px 12px;
+                border-radius: 999px;
+                font-size: 12px;
+                font-weight: 600;
+                color: rgba(255, 255, 255, 0.78);
+                text-decoration: none;
+                transition: all 0.15s ease;
+            }
+
+            .billboard__nav a:hover {
+                color: #fff;
+                background: rgba(255, 255, 255, 0.08);
+            }
+
+            .billboard__nav a.is-active {
+                background: rgba(255, 255, 255, 0.16);
+                color: #fff;
+            }
+
+            .billboard__hero {
+                align-self: center;
+                max-width: 540px;
+            }
+
+            .billboard__kicker {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                padding: 4px 12px 4px 10px;
+                border-radius: 999px;
+                background: rgba(255, 255, 255, 0.12);
+                border: 1px solid rgba(255, 255, 255, 0.20);
+                font-size: 10.5px;
+                font-weight: 700;
+                letter-spacing: 0.14em;
+                text-transform: uppercase;
+                color: rgba(255, 255, 255, 0.92);
+                margin-bottom: 22px;
+            }
+
+            .billboard__kicker .dot {
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background: var(--brand-300);
+                box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand-300) 24%, transparent);
+            }
+
+            .billboard__headline {
+                margin: 0;
+                font-family: 'Fraunces', 'Inter', serif;
+                font-weight: 500;
+                font-size: clamp(34px, 4.2vw, 52px);
+                line-height: 1.04;
+                letter-spacing: -0.025em;
+                color: #fff;
+            }
+
+            .billboard__headline em {
+                font-style: italic;
+                font-weight: 500;
+                color: var(--brand-200);
+            }
+
+            .billboard__tagline {
+                margin: 18px 0 0;
+                font-size: 14.5px;
+                line-height: 1.6;
+                color: rgba(255, 255, 255, 0.82);
+                max-width: 48ch;
+            }
+
+            .billboard__tagline strong {
+                color: #fff;
+                font-weight: 600;
+            }
+
+            /* Campus / detail strip beneath the hero copy */
+            .billboard__details {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(min(100%, 168px), 1fr));
+                gap: 10px;
+                margin-top: 28px;
+                padding-top: 24px;
+                border-top: 1px solid rgba(255, 255, 255, 0.14);
+            }
+
+            .billboard__details-label {
+                grid-column: 1 / -1;
+                font-size: 10.5px;
+                font-weight: 700;
+                letter-spacing: 0.14em;
+                text-transform: uppercase;
+                color: rgba(255, 255, 255, 0.66);
+                margin-bottom: 2px;
+            }
+
+            .campus-pill {
+                position: relative;
+                padding: 11px 13px;
+                border-radius: 12px;
+                background: rgba(255, 255, 255, 0.06);
+                border: 1px solid rgba(255, 255, 255, 0.14);
+                backdrop-filter: blur(6px);
+                transition: background 0.18s ease, transform 0.18s ease, border-color 0.18s ease;
+            }
+
+            .campus-pill:hover {
+                background: rgba(255, 255, 255, 0.11);
+                border-color: rgba(255, 255, 255, 0.28);
+                transform: translateY(-1px);
+            }
+
+            .campus-pill .code {
+                font-family: 'Fraunces', serif;
+                font-size: 14.5px;
+                font-weight: 700;
+                letter-spacing: 0.03em;
+                color: #fff;
+                line-height: 1.1;
+            }
+
+            .campus-pill .name {
+                font-size: 11.5px;
+                font-weight: 600;
+                color: rgba(255, 255, 255, 0.85);
+                margin-top: 3px;
+            }
+
+            .campus-pill .city {
+                font-size: 11px;
+                color: rgba(255, 255, 255, 0.6);
+                margin-top: 1px;
+            }
+
+            .campus-pill .default-pill {
+                position: absolute;
+                top: 9px;
+                right: 9px;
+                background: var(--brand-200);
+                color: var(--brand-900);
+                font-size: 9px;
+                font-weight: 800;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                padding: 2px 6px;
+                border-radius: 999px;
+            }
+
+            /* Footer card on the billboard (quote / IT helpdesk / status note) */
+            .billboard__foot {
+                align-self: end;
+            }
+
+            .billboard__quote {
+                margin: 0;
+                display: flex;
+                gap: 14px;
+                align-items: flex-start;
+                padding: 16px 18px;
+                border-radius: var(--radius-md);
+                background: rgba(255, 255, 255, 0.08);
+                border: 1px solid rgba(255, 255, 255, 0.14);
+                backdrop-filter: blur(8px);
+            }
+
+            .billboard__avatar {
+                width: 40px;
+                height: 40px;
+                flex-shrink: 0;
+                border-radius: 50%;
+                background: linear-gradient(135deg, var(--brand-400), var(--brand-200));
+                color: var(--brand-900);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font: 700 14px 'Inter', sans-serif;
+                letter-spacing: -0.02em;
+                border: 2px solid rgba(255, 255, 255, 0.4);
+            }
+
+            .billboard__quote-body {
+                margin: 0;
+                font-size: 13px;
+                line-height: 1.5;
+                color: rgba(255, 255, 255, 0.92);
+            }
+
+            .billboard__quote-body strong {
+                color: #fff;
+            }
+
+            .billboard__quote-body .who {
+                margin-top: 6px;
+                font-size: 11px;
+                font-weight: 600;
+                color: rgba(255, 255, 255, 0.68);
+            }
+
+            .billboard__quote-body a {
+                color: var(--brand-200);
+                font-weight: 600;
+            }
+
+            .billboard__quote-body a:hover {
+                color: #fff;
+            }
+
+            .billboard__meta {
+                margin-top: 14px;
+                display: flex;
+                justify-content: space-between;
+                font-size: 11px;
+                color: rgba(255, 255, 255, 0.55);
+                font-weight: 500;
+            }
+
+            /* ─── Right pane (form) ─── */
+            .pane {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 56px 28px;
+                background: var(--kiu-page-bg);
+                position: relative;
+            }
+
+            .pane::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                pointer-events: none;
+                background:
+                    radial-gradient(circle at 90% 10%, color-mix(in srgb, var(--brand-300) 20%, transparent), transparent 35%),
+                    radial-gradient(circle at 0% 100%, color-mix(in srgb, var(--brand-400) 12%, transparent), transparent 40%);
+            }
+
+            .dark .pane::before {
+                background:
+                    radial-gradient(circle at 90% 10%, color-mix(in srgb, var(--brand-600) 18%, transparent), transparent 40%),
+                    radial-gradient(circle at 0% 100%, color-mix(in srgb, var(--brand-700) 22%, transparent), transparent 45%);
+            }
+
+            .pane__inner {
+                position: relative;
+                width: 100%;
+                max-width: 440px;
+            }
+
+            .card {
+                position: relative;
+                width: 100%;
+                background: var(--kiu-surface-raised);
+                border: 1px solid var(--kiu-border);
+                border-radius: var(--radius-xl);
+                padding: 38px 38px 30px;
+                box-shadow: var(--kiu-shadow-lg);
+            }
+
+            .card__header {
+                margin-bottom: 24px;
+            }
+
+            .card__icon-row {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 16px;
+            }
+
+            .card__icon {
+                width: 40px;
+                height: 40px;
+                border-radius: 11px;
+                background: linear-gradient(135deg, var(--brand-700), var(--brand-500));
+                color: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 6px 18px color-mix(in srgb, var(--brand-700) 30%, transparent),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+            }
+
+            .dark .card__icon {
+                background: linear-gradient(135deg, var(--brand-600), var(--brand-400));
+                box-shadow: 0 6px 18px color-mix(in srgb, var(--brand-500) 36%, transparent),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+            }
+
+            .card__icon svg {
+                width: 20px;
+                height: 20px;
+            }
+
+            .card__icon-meta {
+                font-size: 10.5px;
+                font-weight: 700;
+                letter-spacing: 0.14em;
+                text-transform: uppercase;
+                color: var(--brand-700);
+            }
+
+            .dark .card__icon-meta {
+                color: var(--brand-300);
+            }
+
+            .card__title {
+                margin: 0;
+                font-family: 'Fraunces', serif;
+                font-weight: 600;
+                font-size: 28px;
+                letter-spacing: -0.025em;
+                line-height: 1.12;
+                color: var(--kiu-text);
+            }
+
+            .card__sub {
+                margin: 8px 0 0;
+                font-size: 13.5px;
+                line-height: 1.55;
+                color: var(--kiu-text-muted);
+                max-width: 38ch;
+            }
+
+            .card__sub strong,
+            .card__sub code {
+                color: var(--kiu-text);
+                font-weight: 600;
+            }
+
+            .card__sub code {
+                font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+                background: var(--kiu-pill-bg);
+                padding: 1px 6px;
+                border-radius: 4px;
+                border: 1px solid var(--kiu-border-soft);
+                font-size: 12.5px;
+            }
+
+            /* Inline invitation/meta details inside the card */
+            .card__meta {
+                margin: 0 0 18px;
+                padding: 12px 14px;
+                border-radius: var(--radius-md);
+                background: var(--kiu-surface-sunken);
+                border: 1px solid var(--kiu-border-soft);
+                font-size: 12.5px;
+            }
+
+            .card__meta-row {
+                display: flex;
+                gap: 8px;
+                padding: 4px 0;
+                line-height: 1.45;
+            }
+
+            .card__meta-row+.card__meta-row {
+                border-top: 1px solid var(--kiu-border-soft);
+                margin-top: 2px;
+            }
+
+            .card__meta-row .k {
+                min-width: 90px;
+                flex-shrink: 0;
+                font-size: 10.5px;
+                font-weight: 700;
+                letter-spacing: 0.06em;
+                text-transform: uppercase;
+                color: var(--kiu-text-muted);
+                padding-top: 2px;
+            }
+
+            .card__meta-row .v {
+                color: var(--kiu-text-secondary);
+                flex: 1;
+                font-weight: 500;
+            }
+
+            .card__meta-row .v.pill-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 4px;
+            }
+
+            .card__meta-row .v .pill {
+                display: inline-flex;
+                align-items: center;
+                padding: 2px 8px;
+                border-radius: 999px;
+                background: var(--kiu-pill-bg);
+                border: 1px solid var(--kiu-border-soft);
+                color: var(--kiu-text-secondary);
+                font-size: 11px;
+                font-weight: 600;
+            }
+
+            /* Alerts */
+            .alert {
+                margin: 0 0 16px;
+                padding: 10px 12px;
+                border-radius: var(--radius-sm);
+                font-size: 12.5px;
+                line-height: 1.45;
+                font-weight: 500;
+            }
+
+            .alert--error {
+                background: var(--kiu-danger-bg);
+                border: 1px solid var(--kiu-danger-ring);
+                color: var(--kiu-danger-fg);
+            }
+
+            .alert--info {
+                background: var(--kiu-info-bg);
+                border: 1px solid var(--kiu-info-ring);
+                color: var(--kiu-info-fg);
+            }
+
+            .alert--success {
+                background: var(--kiu-success-bg);
+                border: 1px solid var(--kiu-success-ring);
+                color: var(--kiu-success-fg);
+            }
+
+            /* Form fields */
+            .field {
+                margin-bottom: 14px;
+            }
+
+            .field__label {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 6px;
+                font-size: 11.5px;
+                font-weight: 700;
+                letter-spacing: 0.04em;
+                text-transform: uppercase;
+                color: var(--kiu-text-secondary);
+            }
+
+            .dark .field__label {
+                color: var(--kiu-text);
+            }
+
+            .field__hint {
+                text-transform: none;
+                letter-spacing: 0;
+                font-size: 11.5px;
+                font-weight: 600;
+                color: var(--brand-700);
+                text-decoration: none;
+            }
+
+            .dark .field__hint {
+                color: var(--brand-300);
+            }
+
+            .field__hint:hover {
+                text-decoration: underline;
+            }
+
+            .field__hint--muted {
+                color: var(--kiu-text-muted);
+                font-weight: 500;
+            }
+
+            .field__wrap {
+                position: relative;
+            }
+
+            /* Icon is absolute-positioned + explicitly vertically centered so it
+   doesn't drift when the input height changes (autofill, browser zoom,
+   error state). Icon sits at left:16, takes 18px, so its right edge is
+   at x=34. Input content must start ≥ 50px to never tuck behind it.
+   Explicit padding-left longhand (in addition to the shorthand) +
+   !important so no autofill / browser-default / aggressive
+   user-agent stylesheet can collapse the gap. */
+            .field__icon {
+                position: absolute;
+                left: 16px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 18px;
+                height: 18px;
+                color: var(--kiu-text-subtle);
+                pointer-events: none;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 1;
+            }
+
+            .field__icon svg {
+                width: 16px;
+                height: 16px;
+                display: block;
+            }
+
+            .field__input {
+                box-sizing: border-box !important;
+                width: 100% !important;
+                padding: 13px 14px 13px 50px !important;
+                padding-left: 50px !important;
+                border-radius: 11px;
+                border: 1px solid var(--kiu-border);
+                background: var(--kiu-surface);
+                color: var(--kiu-text);
+                /* -webkit-text-fill-color overrides `color` on WebKit; set it explicitly
+       so a lingering autofill/internal text-fill-color can't force dark text
+       on the dark surface while typing. */
+                -webkit-text-fill-color: var(--kiu-text);
+                caret-color: var(--kiu-text);
+                font: 500 14.5px 'Inter', sans-serif;
+                transition: all 0.18s ease;
+            }
+
+            /* Reserve room for the trailing show/hide button when present, so
+   typed text (and the placeholder) never tucks behind it. */
+            .field__wrap:has(.field__suffix-btn) .field__input {
+                padding-right: 50px !important;
+            }
+
+            .dark .field__input {
+                background: var(--kiu-surface-sunken);
+            }
+
+            /* Browser autofill forces a pale bg + black text-fill-color that ignore
+   our `color`/`background`, so autofilled email/password render dark-on-dark
+   in dark mode. The inset box-shadow repaints our surface; text-fill-color
+   restores token text. */
+            .field__input:-webkit-autofill,
+            .field__input:-webkit-autofill:hover,
+            .field__input:-webkit-autofill:focus,
+            .field__input:-webkit-autofill:active {
+                -webkit-text-fill-color: var(--kiu-text);
+                caret-color: var(--kiu-text);
+                -webkit-box-shadow: 0 0 0 1000px var(--kiu-surface) inset;
+                box-shadow: 0 0 0 1000px var(--kiu-surface) inset;
+                transition: background-color 9999s ease-out 0s;
+            }
+
+            .dark .field__input:-webkit-autofill,
+            .dark .field__input:-webkit-autofill:hover,
+            .dark .field__input:-webkit-autofill:focus,
+            .dark .field__input:-webkit-autofill:active {
+                -webkit-box-shadow: 0 0 0 1000px var(--kiu-surface-sunken) inset;
+                box-shadow: 0 0 0 1000px var(--kiu-surface-sunken) inset;
+            }
+
+            .field__input::placeholder {
+                color: var(--kiu-text-subtle);
+                -webkit-text-fill-color: var(--kiu-text-subtle);
+                font-weight: 500;
+            }
+
+            .field__input:hover {
+                border-color: var(--kiu-border-muted);
+            }
+
+            .field__input:focus {
+                outline: none;
+                border-color: var(--brand-500);
+                box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand-500) 18%, transparent);
+            }
+
+            .field__input:focus~.field__icon,
+            .field__input:focus+.field__suffix-btn {
+                color: var(--brand-700);
+            }
+
+            .field__input[aria-invalid="true"],
+            .field__input--err {
+                border-color: var(--kiu-danger-fg);
+                box-shadow: 0 0 0 4px color-mix(in srgb, var(--kiu-danger-fg) 14%, transparent);
+            }
+
+            .field__error {
+                display: block;
+                margin-top: 5px;
+                font-size: 11.5px;
+                font-weight: 600;
+                color: var(--kiu-danger-fg);
+            }
+
+            .field__hint-text {
+                display: block;
+                margin-top: 5px;
+                font-size: 11.5px;
+                font-weight: 500;
+                color: var(--kiu-text-muted);
+            }
+
+            .field__suffix-btn {
+                position: absolute;
+                right: 8px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 32px;
+                height: 32px;
+                border: 0;
+                border-radius: 8px;
+                background: transparent;
+                color: var(--kiu-text-muted);
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.15s ease;
+            }
+
+            .field__suffix-btn:hover {
+                background: var(--kiu-pill-bg);
+                color: var(--brand-700);
+            }
+
+            .dark .field__suffix-btn:hover {
+                color: var(--brand-300);
+            }
+
+            /* Password show/hide — CSS toggles based on aria-pressed, no innerHTML. */
+            .field__pw-eye,
+            .field__pw-eye-off {
+                display: inline-flex;
+            }
+
+            .field__suffix-btn[aria-pressed="true"] .field__pw-eye {
+                display: none;
+            }
+
+            .field__suffix-btn[aria-pressed="false"] .field__pw-eye-off {
+                display: none;
+            }
+
+            /* Remember-me + other checkboxes */
+            .row {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 12px;
+                margin: 4px 0 22px;
+            }
+
+            .check {
+                display: inline-flex;
+                align-items: center;
+                gap: 9px;
+                cursor: pointer;
+                font-size: 12.5px;
+                font-weight: 600;
+                color: var(--kiu-text-secondary);
+                user-select: none;
+            }
+
+            .check input {
+                position: absolute;
+                opacity: 0;
+                pointer-events: none;
+            }
+
+            .check__box {
+                width: 17px;
+                height: 17px;
+                flex-shrink: 0;
+                border-radius: 5px;
+                border: 1.5px solid var(--kiu-border-muted);
+                background: var(--kiu-surface);
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.15s ease;
+            }
+
+            .check__box svg {
+                width: 11px;
+                height: 11px;
+                color: #fff;
+                opacity: 0;
+                transform: scale(0.6);
+                transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .check input:checked+.check__box {
+                background: var(--brand-600);
+                border-color: var(--brand-600);
+            }
+
+            .check input:checked+.check__box svg {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            .check input:focus-visible+.check__box {
+                box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand-500) 22%, transparent);
+            }
+
+            /* ─── Buttons ─── */
+            /* Two-tier system, coherent across light + dark:
+   - Primary: filled gradient, brand-700→500 (light) / 600→400 (dark)
+     — bright enough to pop against the dark card surface
+   - Secondary: outlined, surface bg, hover tints to brand-50 / dark sage
+   Both share the same shape (radius, padding, height, weight) and feel
+   like the same family with different emphasis. */
+
+            .btn-primary {
+                width: 100%;
+                padding: 14px 16px;
+                border: 0;
+                border-radius: 11px;
+                background: linear-gradient(135deg, var(--brand-700), var(--brand-500));
+                color: #fff;
+                font: 700 14px 'Inter', sans-serif;
+                letter-spacing: 0.01em;
+                cursor: pointer;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                transition: filter 0.18s ease, transform 0.15s ease, box-shadow 0.18s ease, background 0.18s ease;
+                box-shadow: 0 6px 20px color-mix(in srgb, var(--brand-700) 28%, transparent),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .dark .btn-primary {
+                background: linear-gradient(135deg, var(--brand-600), var(--brand-400));
+                box-shadow: 0 6px 20px color-mix(in srgb, var(--brand-500) 32%, transparent),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.20);
+            }
+
+            .btn-primary::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+                transform: translateX(-100%);
+                transition: transform 0.6s ease;
+                pointer-events: none;
+            }
+
+            .btn-primary:hover:not(:disabled) {
+                background: linear-gradient(135deg, var(--brand-800), var(--brand-600));
+                transform: translateY(-1px);
+                box-shadow: 0 12px 32px color-mix(in srgb, var(--brand-700) 40%, transparent),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+            }
+
+            .dark .btn-primary:hover:not(:disabled) {
+                background: linear-gradient(135deg, var(--brand-500), var(--brand-300));
+                box-shadow: 0 12px 32px color-mix(in srgb, var(--brand-400) 38%, transparent),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.28);
+            }
+
+            .btn-primary:hover:not(:disabled)::before {
+                transform: translateX(100%);
+            }
+
+            .btn-primary:active:not(:disabled) {
+                transform: translateY(0);
+                filter: brightness(0.94);
+            }
+
+            .btn-primary:focus-visible {
+                outline: none;
+                box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand-500) 30%, transparent),
+                    0 6px 20px color-mix(in srgb, var(--brand-700) 28%, transparent);
+            }
+
+            .btn-primary:disabled {
+                opacity: 0.7;
+                cursor: wait;
+                box-shadow: none;
+            }
+
+            .btn-primary svg {
+                width: 16px;
+                height: 16px;
+                transition: transform 0.2s ease;
+            }
+
+            .btn-primary:hover:not(:disabled) svg {
+                transform: translateX(3px);
+            }
+
+            .btn-primary .spinner {
+                width: 14px;
+                height: 14px;
+                border: 2px solid rgba(255, 255, 255, 0.35);
+                border-top-color: #fff;
+                border-radius: 50%;
+                animation: spin 0.7s linear infinite;
+            }
+
+            @keyframes spin {
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+
+            /* Secondary outlined button — shares geometry with primary, lower emphasis */
+            .btn-secondary {
+                display: flex;
+                width: 100%;
+                box-sizing: border-box;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                margin-top: 10px;
+                padding: 13px 16px;
+                border-radius: 11px;
+                border: 1px solid var(--kiu-border);
+                background: var(--kiu-surface);
+                color: var(--kiu-text-secondary);
+                font: 600 13px 'Inter', sans-serif;
+                text-decoration: none;
+                cursor: pointer;
+                transition: all 0.15s ease;
+            }
+
+            .btn-secondary:hover {
+                border-color: var(--brand-400);
+                background: var(--brand-50);
+                color: var(--brand-800);
+                transform: translateY(-1px);
+            }
+
+            .btn-secondary:active {
+                transform: translateY(0);
+                filter: brightness(0.97);
+            }
+
+            .btn-secondary:focus-visible {
+                outline: none;
+                border-color: var(--brand-500);
+                box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand-500) 18%, transparent);
+            }
+
+            .dark .btn-secondary {
+                background: var(--kiu-surface-sunken);
+            }
+
+            .dark .btn-secondary:hover {
+                background: color-mix(in srgb, var(--brand-500) 16%, transparent);
+                border-color: color-mix(in srgb, var(--brand-400) 38%, transparent);
+                color: var(--brand-200);
+            }
+
+            /* Foot strip + trust strip */
+            .card__foot {
+                margin-top: 24px;
+                padding-top: 20px;
+                border-top: 1px solid var(--kiu-border-soft);
+                text-align: center;
+                font-size: 13px;
+                color: var(--kiu-text-muted);
+            }
+
+            .card__foot strong {
+                color: var(--kiu-text);
+                font-weight: 600;
+            }
+
+            .card__foot a {
+                color: var(--brand-700);
+                font-weight: 700;
+                text-decoration: none;
+                margin-left: 4px;
+            }
+
+            .dark .card__foot a {
+                color: var(--brand-300);
+            }
+
+            .card__foot a:hover {
+                text-decoration: underline;
+            }
+
+            .trust {
+                margin-top: 22px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 18px;
+                flex-wrap: wrap;
+                font-size: 11.5px;
+                font-weight: 600;
+                color: var(--kiu-text-muted);
+            }
+
+            .trust__item {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+            }
+
+            .trust__item svg {
+                color: var(--brand-600);
+                width: 14px;
+                height: 14px;
+            }
+
+            .dark .trust__item svg {
+                color: var(--brand-300);
+            }
+
+            .legal {
+                margin: 18px 0 0;
+                text-align: center;
+                font-size: 11px;
+                color: var(--kiu-text-subtle);
+            }
+
+            .legal a {
+                color: var(--kiu-text-muted);
+                text-decoration: none;
+                margin: 0 6px;
+            }
+
+            .legal a:hover {
+                color: var(--brand-700);
+            }
+
+            .dark .legal a:hover {
+                color: var(--brand-300);
+            }
+
+            /* Responsive */
+            @media (max-width: 1080px) {
+                .shell {
+                    grid-template-columns: 1fr;
+                }
+
+                .billboard {
+                    min-height: 360px;
+                    padding: 36px 32px 40px;
+                    grid-template-rows: auto 1fr;
+                }
+
+                .billboard__foot {
+                    display: none;
+                }
+            }
+
+            @media (max-width: 640px) {
+
+                /* Mobile: hide the editorial hero (headline / tagline / campus
+     * tiles) so the form gets the screen. The brand lockup stays as
+     * a slim green header strip above the form. */
+                .billboard {
+                    min-height: auto;
+                    padding: 18px 22px;
+                    grid-template-rows: auto;
+                }
+
+                .billboard__hero {
+                    display: none;
+                }
+
+                .billboard__foot {
+                    display: none;
+                }
+
+                .billboard__nav {
+                    display: none;
+                }
+
+                .pane {
+                    padding: 28px 18px 56px;
+                }
+
+                .card {
+                    padding: 28px 22px 22px;
+                    border-radius: var(--radius-lg);
+                }
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+
+                *,
+                *::before,
+                *::after {
+                    animation-duration: 0ms !important;
+                    transition-duration: 0ms !important;
+                }
+            }
+
+            html[data-kiu-theme="sage"] {
+                --brand-50: #F5F7E5;
+                --brand-100: #E8EDC8;
+                --brand-200: #D4DEA8;
+                --brand-300: #BFCB8E;
+                --brand-400: #A7B574;
+                --brand-500: #8FA05B;
+                --brand-600: #75864A;
+                --brand-700: #5C6B3B;
+                --brand-800: #46522D;
+                --brand-900: #353E22;
+                --brand-950: #1F2515;
+                --kiu-surface: #FFFFFF;
+                --kiu-surface-raised: #FFFFFF;
+                --kiu-surface-sunken: #F8FAF0;
+                --kiu-page-bg: #F1F4E8;
+                --kiu-pill-bg: #F2F5E6;
+                --kiu-border: #DDE5C0;
+                --kiu-border-soft: #ECF1DA;
+                --kiu-border-muted: #C5CDA8;
+                --kiu-text: #1A1F10;
+                --kiu-text-secondary: #4A5436;
+                --kiu-text-muted: #7A8364;
+                --kiu-text-subtle: #9CA388;
+                --kiu-success-bg: #E8EDC8;
+                --kiu-success-fg: #46522D;
+                --kiu-success-ring: #D4DEA8;
+            }
+
+            html[data-kiu-theme="sage"].dark {
+                --kiu-surface: #232619;
+                --kiu-surface-raised: #2D311F;
+                --kiu-surface-sunken: #1A1D11;
+                --kiu-page-bg: #14160B;
+                --kiu-pill-bg: #2D311E;
+                /* Re-assert dark borders: the sage LIGHT block above sets --kiu-border*
+       at specificity (0,1,1), which outranks `.dark` (0,1,0). */
+                --kiu-border: rgba(255, 255, 255, 0.06);
+                --kiu-border-soft: rgba(255, 255, 255, 0.03);
+                --kiu-border-muted: rgba(255, 255, 255, 0.12);
+                --kiu-text: #E9EBDD;
+                --kiu-text-secondary: #B8BDA0;
+                --kiu-text-muted: #8C937A;
+                --kiu-text-subtle: #6B7158;
+                --kiu-success-bg: rgba(143, 160, 91, 0.12);
+                --kiu-success-fg: #C5D38A;
+                --kiu-success-ring: rgba(143, 160, 91, 0.35);
+            }
+        </style>
+
+        <main class="shell">
+
+
+            <aside class="billboard" aria-label="KORVA brand panel">
+                <div class="billboard__top">
+                    <a href="https://devopshub.kiu.ac.ug/erpv2-demo/auth/login" class="brand-lockup"
+                        aria-label="KIU home">
+                        <div class="brand-lockup__mark">
+                            <img src="https://devopshub.kiu.ac.ug/erpv2-demo/assets/kiu/logo.png" alt="">
+                        </div>
+                        <div class="brand-lockup__text">
+                            <strong>KORVA</strong>
+                            <span class="brand-lockup__institution">Kampala International University</span>
+                            <small>KIU Advanced ERP</small>
+                        </div>
+                    </a>
+                </div>
+
+                <section class="billboard__hero">
+                    <div class="billboard__kicker">
+                        <span class="dot"></span>
+                        KIU · Internal staff portal
+                    </div>
+                    <h1 class="billboard__headline">
+                        Run the campus.<br>
+                        <em>Calmly,</em> together.
+                    </h1>
+                    <p class="billboard__tagline">
+                        KORVA is the staff workspace for
+                        <strong>Kampala International University</strong>
+                        — admissions, registration, examinations, hostels, finance and HR, joined up across every
+                        campus.
+                    </p>
+
+                    <!--[if BLOCK]><![endif]-->
+                    <div class="billboard__details" aria-label="Accessible campuses">
+                        <div class="billboard__details-label">
+                            Accessible from 2 campuses
+                        </div>
+                        <!--[if BLOCK]><![endif]-->
+                        <div class="campus-pill">
+                            <!--[if BLOCK]><![endif]--> <span class="default-pill" title="Default campus">Default</span>
+                            <!--[if ENDBLOCK]><![endif]-->
+                            <div class="code">KIU</div>
+                            <div class="name">KIU Main Campus</div>
+                            <div class="city">Kampala<!--[if BLOCK]><![endif]--> · Central<!--[if ENDBLOCK]><![endif]-->
+                                <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]--></div>
+                        </div>
+                        <div class="campus-pill">
+                            <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+                            <div class="code">WC</div>
+                            <div class="name">KIU Western Campus</div>
+                            <div class="city">Ishaka-Bushenyi<!--[if BLOCK]><![endif]--> ·
+                                Western<!--[if ENDBLOCK]><![endif]-->
+                                <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]--></div>
+                        </div>
+                        <!--[if ENDBLOCK]><![endif]-->
+                    </div>
+                    <!--[if ENDBLOCK]><![endif]-->
+                </section>
+
+                <footer class="billboard__foot">
+                    <figure class="billboard__quote">
+                        <div class="billboard__avatar" aria-hidden="true">IT</div>
+                        <blockquote class="billboard__quote-body">
+                            <strong>Don't have an account?</strong> Staff accounts are provisioned by KIU IT. Email
+                            <a href="mailto:korva@kiu.ac.ug">korva@kiu.ac.ug</a> and we'll get you set up.
+                            <div class="who">— KIU IT Service Desk</div>
+                        </blockquote>
+                    </figure>
+                    <div class="billboard__meta">
+                        <span>© 2026 Kampala International University</span>
+                        <span>Secured · TLS · Session</span>
+                    </div>
+                </footer>
+            </aside>
+
+
+            <section class="pane">
+                <div class="pane__inner">
+
+                    <article class="card">
+                        <header class="card__header">
+                            <div class="card__icon-row">
+                                <div class="card__icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="11" width="18" height="11" rx="2" />
+                                        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                                    </svg>
+                                </div>
+                                <span class="card__icon-meta">Secure sign-in</span>
+                            </div>
+                            <h2 class="card__title">Welcome back</h2>
+                            <p class="card__sub">
+                                Sign in with your <strong>&#64;kiu.ac.ug</strong> email to access the KIU staff
+                                workspace.
+                            </p>
+                        </header>
+
+                        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+                        <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+                        <form wire:submit="continue" novalidate autocomplete="on">
+                            <div class="field">
+                                <label class="field__label" for="email">
+                            Campus email
+                            <span class="field__hint field__hint--muted">&#64;kiu.ac.ug</span>
+                        </label>
+                                <div class="field__wrap">
+                                    <span class="field__icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="5" width="18" height="14" rx="2"/>
+                                    <path d="m3 7 9 6 9-6"/>
+                                </svg>
+                            </span>
+                                    <input
+                                class="field__input"
+                                id="email"
+                                name="email"
+                                type="email"
+                                inputmode="email"
+                                autocomplete="username"
+                                placeholder="firstname.lastname@kiu.ac.ug"
+                                required autofocus
+                                wire:model.blur="email"
+                                aria-invalid="false"
+                            />
+                                </div>
+                                <!--[if BLOCK]><![endif]--><!--[if ENDBLOCK]><![endif]-->
+                            </div>
+
+                            <p class="field__hint" style="margin-top:4px">
+                                <a href="https://devopshub.kiu.ac.ug/erpv2-demo/auth/forgot-password"
+                                    wire:navigate>Forgot your password?</a>
+                            </p>
+
+                            <button type="submit" class="btn-primary" wire:loading.attr="disabled" wire:target="continue">
+                        <span wire:loading.remove wire:target="continue" style="display:inline-flex;align-items:center;gap:8px">
+                            Continue
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                                <polyline points="12 5 19 12 12 19"/>
+                            </svg>
+                        </span>
+                        <span wire:loading.inline-flex wire:target="continue" style="align-items:center;gap:8px">
+                            <span class="spinner"></span> Checking…
+                        </span>
+                    </button>
+                        </form>
+
+                        <div class="card__foot">
+                            New staff with an invitation?<a href="https://devopshub.kiu.ac.ug/erpv2-demo/auth/register"
+                                wire:navigate>Register here →</a>
+                        </div>
+                    </article>
+
+                    <div class="trust" aria-label="Trust signals">
+                        <span class="trust__item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2 4 6v6c0 5 3.5 9.5 8 10 4.5-.5 8-5 8-10V6l-8-4z"/>
+                    </svg>
+                    256-bit TLS
+                </span>
+                        <span class="trust__item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+                    </svg>
+                    Audited sessions
+                </span>
+                        <span class="trust__item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                    </svg>
+                    Staff only
+                </span>
+                    </div>
+
+                    <!--[if BLOCK]><![endif]-->
+                    <p class="legal">
+                        Not a staff member? Use the
+                        <!--[if BLOCK]><![endif]--><a href="/app">Student portal</a><!--[if ENDBLOCK]><![endif]-->
+                        <!--[if BLOCK]><![endif]--> or <!--[if ENDBLOCK]><![endif]--> <!--[if BLOCK]><![endif]--><a
+                            href="http://localhost:5173">Applicant portal</a><!--[if ENDBLOCK]><![endif]--> .
+                    </p>
+                    <!--[if ENDBLOCK]><![endif]-->
+                </div>
+            </section>
+
+        </main>
+
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
+    <svg class="theme-toggle__sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+    </svg>
+    <svg class="theme-toggle__moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+    <span class="theme-toggle__label-light">Dark</span>
+    <span class="theme-toggle__label-dark">Light</span>
+</button>
+
+        <script>
+            (function () {
+    var root = document.documentElement;
+    var themeBtn = document.getElementById('themeToggle');
+    var pwToggle = document.getElementById('pwToggle');
+    var pw = document.getElementById('password');
+
+    var saved = null;
+    try { saved = localStorage.getItem('theme'); } catch (e) {}
+    if (saved === 'dark' || (saved === null && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        root.classList.add('dark');
+    }
+
+    if (themeBtn) {
+        themeBtn.addEventListener('click', function () {
+            root.classList.toggle('dark');
+            try { localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light'); } catch (e) {}
+        });
+    }
+
+    if (pwToggle && pw) {
+        pwToggle.addEventListener('click', function () {
+            var showing = pw.type === 'text';
+            pw.type = showing ? 'password' : 'text';
+            pwToggle.setAttribute('aria-pressed', showing ? 'false' : 'true');
+            pwToggle.setAttribute('aria-label', showing ? 'Show password' : 'Hide password');
+        });
+    }
+})();
+        </script>
+    </div>
+    <script src="https://devopshub.kiu.ac.ug/erpv2-demo/livewire-d60b5812/livewire.min.js?id=6b3709b1"
+        data-csrf="89ryjefhzC0Y6WA9Kx3g9UPUdRY0tg6DEubUiEe6"
+        data-module-url="https://devopshub.kiu.ac.ug/erpv2-demo/livewire-d60b5812"
+        data-update-uri="https://devopshub.kiu.ac.ug/erpv2-demo/livewire-d60b5812/update" data-navigate-once="true">
+    </script>
+</body>
+
+</html>

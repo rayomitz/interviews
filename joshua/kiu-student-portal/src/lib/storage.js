@@ -13,7 +13,7 @@ export function saveToken(token) {
     `expires=${expires.toUTCString()}`,
     'path=/',
     'SameSite=Strict',
-    // 'Secure', // uncomment when on HTTPS (production)
+    // 'Secure', // I will uncomment for production on https
   ].join('; ')
 }
 
