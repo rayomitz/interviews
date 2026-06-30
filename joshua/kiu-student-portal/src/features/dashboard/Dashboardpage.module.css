@@ -1,0 +1,69 @@
+/* DashboardPage.module.css */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/*Two-column grid*/
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 24px;
+  align-items: start;
+}
+
+/* Section titles */
+.sectionTitle {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin: 0 0 16px;
+}
+
+/*Quick actions*/
+.actionsSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.actionsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/*Activity panel */
+.activitySection {
+  display: flex;
+  flex-direction: column;
+}
+
+/* The Card component is raised already; add comfortable inner padding */
+.activityCard {
+  padding: 22px 22px 16px;
+}
+
+/*Responsive*/
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .activitySection {
+    order: -1; /* Activity above actions on tablet if preferred */
+  }
+}
+
+@media (max-width: 600px) {
+  .actionsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .page {
+    gap: 20px;
+  }
+}
